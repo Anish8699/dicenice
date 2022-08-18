@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Dicee</title>
+    <!-- <link rel="stylesheet" href="work9.css" /> -->
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster" rel="stylesheet" />
+    <style>
+        
+.container {
+  width: 40%;
+  /* margin: auto; */
+  text-align: center;
+}
+.main{
+  display: flex;
+}
+.dice {
+  text-align: center;
+  display: inline-block;
+    font-weight: 600;
+    font-size: 40px;
+
+}
+
+.right{
+  height: 100vh;
+  /* background-color: yellow; */
+  width: 30%;
+}
+.left{
+  height: 100vh;
+  /* background-color: yellow; */
+  width: 30%;
+}
+li{
+  list-style: none;
+  background-color: rebeccapurple;
+  margin-left: 50px;
+  border-radius: 20px;
+  margin-top: -20px;
+  /* width: fit-content; */
+  /* padding: 4px 10px; */
+  
+}
+h4{
+  margin-left: 50px;
+  width: 160px;
+  height: 40px;
+}
+.tot{
+  font-size: 25px;
+  /* background-color: yellow; */
+  border-radius: 20px;
+  padding: 6px 10px;
+}
+.score{
+  width: 120px;
+  font-size: 25px;
+}
+.three{
+  font-size: 50px;
+  font-family: 'Times New Roman', Times, serif;
+  margin-left: 30px;
+}
+.tot1{
+  font-size: 25px;
+  /* background-color: yellow; */
+  border-radius: 20px;
+  padding: 6px 10px;
+  margin-left: 30%;
+}
+.score1{
+  width: 120px;
+  font-size: 25px;
+  margin-left: 30%;
+}
+.three1{
+  font-size: 50px;
+  font-family: 'Times New Roman', Times, serif;
+  margin-left: 30%;
+}
+body {
+  background-color: #393E46;
+}
+
+h1 {
+  margin: 0px;
+  /* font-family: 'Lobster', cursive; */
+  text-shadow: 5px 0 #232931;
+  font-size: 8rem;
+  color: #4ECCA3;
+}
+
+p {
+  font-size: 2rem;
+  color: #4ECCA3;
+  font-family: 'Indie Flower', cursive;
+}
+h2{
+    /* display: none; */
+    margin-top: 0px;
+    font-size: 30px;
+    color: gold;
+}
+h4{
+    font-size: 40px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.win{
+  color: gold;
+  /* background-color: black; */
+  width: 250px;
+  height: 60px;
+  margin-left: 20%;
+  padding: 5px 10px;
+  border-radius: 20%;
+  margin-top: 6%;
+}
+
+img {
+  width: 80%;
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="right">
+            <h3 class="three"></h3>
+            <li class="score"></li>
+            <h4 class="tot"> </h4>
+        </div>
+        <div class="container">
+            <h1>Refresh Me</h1>
+
+            <div class="dice">
+                <p>Pankaj</p>
+                <img onclick="change1()" class="img1" src="dice2.png" />
+            </div>
+
+            <div class="dice">
+                <p>Komal</p>
+                <img class="img2" onclick="change2()" src="dice4.png" />
+            </div>
+            <!-- <h4 onclick="result()">Result</h4> -->
+            <h2 class="win"></h2>
+
+        </div>
+        <div class="left">
+            <h3 class="three1"> </h3>
+            <li class="score1"></li>
+            <h4 class="tot1"></h4>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script>
+        let x = document.querySelector(".img1");
+        let y = document.querySelector(".img2");
+        let n = document.querySelector(".win");
+        let arr1 = [];
+        arr1[0] = "dice1.png";
+        arr1[1] = "dice2.png";
+        arr1[2] = "dice3.png";
+        arr1[3] = "dice4.png";
+        arr1[4] = "dice5.png";
+        arr1[5] = "dice6.png";
+        let len = arr1.length - 1;
+
+
+        let count = 1;
+        let k = document.querySelector(".three");
+        let l = document.querySelector(".score");
+        let m = document.querySelector(".tot");
+        let arr9 = [];
+        let total=0;
+        function change1() {
+
+            if (count < 11) {
+                let rand = Math.floor(Math.random() * len);
+                x.src = arr1[rand];
+                l.innerHTML += `<li> ${rand + 1} </li><br>`;
+                arr9.push(rand + 1);
+                count += 1
+                total = total + rand + 1;
+                // if (count == 12) {
+                //     console.log(total);
+                // }
+
+            }
+            k.innerText = "pankaj";
+            k.style.color = "aqua";
+            m.innerText = `TOTAL:- ${total}`;
+            m.style.color = "red";
+            m.style.backgroundColor = "white";
+            if(total>total1){
+                n.innerText="PANKAJ WINS";
+                n.style.backgroundColor="black";
+            }
+            if(total1>total){
+                
+                n.innerText="KOMAL WINS";n.style.backgroundColor="black";
+            }
+            // if(total==total){
+            //     n.innerText="IT's TIE ";n.style.backgroundColor="black";
+            // }
+
+        }
+
+
+        let d = document.querySelector(".three1");
+        let e = document.querySelector(".score1");
+        let f = document.querySelector(".tot1");
+        let arr10 = [];
+        let total1 = 0;
+        let count1 = 1;
+        function change2() {
+            if (count1 < 11) {
+                let rand1 = Math.floor(Math.random() * len);
+                y.src = arr1[rand1];
+                e.innerHTML += `<li> ${rand1 + 1} </li><br>`;
+                arr10.push(rand1 + 1);
+                count1 += 1
+                total1 = total1 + rand1 + 1;
+            }
+            d.innerText = "KOMAL";
+            d.style.color = "blue";
+            f.innerText = `TOTAL:- ${total1}`;
+            f.style.color = "green";
+            f.style.backgroundColor = "black";
+            if(total>total1){
+                n.innerText="PANKAJ WINS";
+                n.style.backgroundColor="black";
+            }
+            if(total1>total){
+                
+                n.innerText="KOMAL WINS";n.style.backgroundColor="black";
+            }
+            if(total==total1){
+                n.innerText="IT's TIE ";n.style.backgroundColor="black";
+            }
+
+
+        }
+        
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
